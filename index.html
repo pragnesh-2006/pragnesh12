@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f7f8f5" />
+    <meta name="description" content="EssayLens helps students understand their writing with clear, rubric-based feedback." />
+    <title>EssayLens — Essay evaluator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand" href="#home" aria-label="EssayLens home">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 36 36" fill="none"><path d="M8 25.5V10.8c0-.9.7-1.6 1.6-1.6h16.8c.9 0 1.6.7 1.6 1.6v14.7c0 .9-.7 1.6-1.6 1.6H9.6c-.9 0-1.6-.7-1.6-1.6Z" stroke="currentColor" stroke-width="2"/><path d="M13 15h10M13 19h10M13 23h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/><path d="m24.5 8.5 3 3" stroke="#D8F568" stroke-width="3" stroke-linecap="round"/></svg>
+          </span>
+          <span class="brand-name">essay<span>lens</span></span>
+        </a>
+
+        <button class="workspace-switcher" id="workspace-switcher" type="button" aria-label="Edit workspace and profile names">
+          <span class="workspace-avatar" id="workspace-initial">S</span>
+          <span class="workspace-copy"><strong id="workspace-name">Student workspace</strong><span>Personal account</span></span>
+          <svg class="chevron" viewBox="0 0 20 20" aria-hidden="true"><path d="m6 8 4 4 4-4"/></svg>
+        </button>
+
+        <div class="nav-label">WORKSPACE</div>
+        <nav class="nav-list">
+          <a class="nav-item active" id="evaluate-link" href="#evaluate" aria-current="page"><svg viewBox="0 0 24 24"><path d="M5 4.8c0-1 .8-1.8 1.8-1.8h10.4c1 0 1.8.8 1.8 1.8v14.4c0 1-.8 1.8-1.8 1.8H6.8c-1 0-1.8-.8-1.8-1.8V4.8Z"/><path d="M9 8h6M9 12h6M9 16h3"/></svg><span>Evaluate essay</span><span class="nav-dot"></span></a>
+          <a class="nav-item" href="#history" id="history-link"><svg viewBox="0 0 24 24"><path d="M5 5h14v15H5zM8 3v4M16 3v4M5 9h14"/><path d="M9 13h2M14 13h2M9 16h2"/></svg><span>My evaluations</span><span class="nav-count" id="evaluation-count">0</span></a>
+          <a class="nav-item" href="#insights" id="insights-link"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h17"/><path d="m7 15 4-4 3 2 5-6"/><path d="M16 7h3v3"/></svg><span>Writing insights</span></a>
+        </nav>
+
+        <div class="sidebar-divider"></div>
+        <div class="nav-label">LEARN</div>
+        <nav class="nav-list">
+          <a class="nav-item" href="#rubric" id="rubric-link"><svg viewBox="0 0 24 24"><path d="M5 4h14v16H5zM8 8h8M8 12h8M8 16h5"/></svg><span>Scoring rubric</span></a>
+          <a class="nav-item" href="#about" id="about-link"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.4 2.4 0 1 1 4.3 1.5c-.8 1-2 1.1-2 2.5M12 16.5h.01"/></svg><span>How it works</span></a>
+        </nav>
+
+        <div class="sidebar-spacer"></div>
+        <div class="help-card">
+          <div class="help-icon"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg></div>
+          <strong>A little goes a long way</strong>
+          <p>Use your feedback to find one small improvement for your next draft.</p>
+          <a href="#about" id="tips-link">Writing tips <span>↗</span></a>
+        </div>
+        <button class="profile-button" id="profile-button" type="button">
+          <span class="profile-avatar" id="profile-initial">A</span><span class="profile-copy"><strong id="profile-name">Alex Morgan</strong><small>Free plan</small></span><svg viewBox="0 0 20 20" class="more-icon"><circle cx="4" cy="10" r="1"/><circle cx="10" cy="10" r="1"/><circle cx="16" cy="10" r="1"/></svg>
+        </button>
+      </aside>
+
+      <main class="main-content" id="home">
+        <header class="topbar">
+          <div class="breadcrumbs"><span>Workspace</span><span class="crumb-slash">/</span><strong>Evaluate essay</strong></div>
+          <div class="topbar-actions"><span class="save-status"><span class="status-dot"></span>Local demo · no account needed</span><button class="icon-button" id="help-button" aria-label="Help" title="How scoring works"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.7 9a2.4 2.4 0 1 1 4.3 1.5c-.8 1.1-2 1.2-2 2.5M12 16.5h.01"/></svg></button></div>
+        </header>
+
+        <div class="page-wrap">
+          <section class="welcome-row" id="evaluate">
+            <div>
+              <div class="eyebrow"><span class="sparkle">✳</span> YOUR WRITING, WITH CLARITY</div>
+              <h1>Make your next draft<br class="title-break" /> your best one.</h1>
+              <p class="welcome-copy">Get a thoughtful, rubric-based read on your essay — and a few clear ideas for what to do next.</p>
+            </div>
+            <div class="welcome-art" aria-hidden="true">
+              <div class="art-halo"></div><div class="art-paper"><span class="paper-cap"></span><i></i><i></i><i></i><i></i><span class="paper-check">✓</span></div><div class="art-spark art-spark-one">✳</div><div class="art-spark art-spark-two">✦</div><div class="art-orbit"></div>
+            </div>
+          </section>
+
+          <div class="content-grid">
+            <section class="editor-card card" aria-labelledby="editor-heading">
+              <div class="card-heading">
+                <div class="heading-with-icon"><span class="heading-icon purple"><svg viewBox="0 0 24 24"><path d="M4 5.5C4 4.7 4.7 4 5.5 4h13c.8 0 1.5.7 1.5 1.5v13c0 .8-.7 1.5-1.5 1.5h-13c-.8 0-1.5-.7-1.5-1.5v-13Z"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></span><div><h2 id="editor-heading">Your essay</h2><p>Paste a draft to get started</p></div></div>
+                <button class="text-button" id="sample-button" type="button"><svg viewBox="0 0 20 20"><path d="M4 4h12v12H4zM7 8h6M7 11h6M7 14h3"/></svg>Try a sample</button>
+              </div>
+              <label class="sr-only" for="essay-input">Paste or write your essay</label>
+              <div class="textarea-wrap">
+                <textarea id="essay-input" maxlength="12000" placeholder="Start writing or paste your essay here…&#10;&#10;For the most useful feedback, include a complete draft with an introduction, supporting paragraphs, and a conclusion."></textarea>
+                <div class="textarea-tools"><span class="input-hint"><svg viewBox="0 0 20 20"><path d="M10 3v14M3 10h14"/></svg>Your writing stays in this browser</span><span class="word-count"><strong id="word-count">0</strong> words <span class="count-divider">·</span> <span id="char-count">0</span> / 12,000</span></div>
+              </div>
+              <div class="editor-footer">
+                <div class="rubric-select-wrap"><span class="select-label">SCORING GUIDE</span><button class="rubric-select" id="rubric-button" type="button" aria-haspopup="listbox" aria-expanded="false"><span class="rubric-mini-icon">◎</span><span>General academic essay</span><svg viewBox="0 0 20 20"><path d="m6 8 4 4 4-4"/></svg></button><div class="rubric-menu" id="rubric-menu" role="listbox" aria-label="Scoring guide"><button type="button" class="rubric-option selected" data-rubric="General academic essay"><span>General academic essay</span><small>Clarity · structure · language</small><span class="option-check">✓</span></button><button type="button" class="rubric-option" data-rubric="Argumentative essay"><span>Argumentative essay</span><small>Thesis · evidence · reasoning</small><span class="option-check">✓</span></button><button type="button" class="rubric-option" data-rubric="Narrative essay"><span>Narrative essay</span><small>Story · detail · voice</small><span class="option-check">✓</span></button></div></div>
+                <button class="evaluate-button" id="evaluate-button" type="button" disabled><span>Evaluate essay</span><svg viewBox="0 0 20 20"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button>
+              </div>
+              <div class="privacy-note"><span class="privacy-lock"><svg viewBox="0 0 16 16"><rect x="3.5" y="7" width="9" height="7" rx="1.5"/><path d="M5.5 7V5a2.5 2.5 0 0 1 5 0v2"/></svg></span>For learning support only. Your teacher’s rubric and judgment always come first.</div>
+            </section>
+
+            <section class="results-card card" id="results-card" aria-live="polite" aria-labelledby="results-heading">
+              <div class="card-heading results-heading">
+                <div class="heading-with-icon"><span class="heading-icon lime"><svg viewBox="0 0 24 24"><path d="M4 19V5M4 19h17"/><path d="m7 15 4-4 3 2 5-6"/><path d="M16 7h3v3"/></svg></span><div><h2 id="results-heading" tabindex="-1">Your feedback</h2><p id="results-subtitle">A clearer view of your writing</p></div></div>
+                <button class="icon-button result-menu-button" id="result-menu-button" aria-label="More options" title="More options"><svg viewBox="0 0 20 20"><circle cx="4" cy="10" r="1"/><circle cx="10" cy="10" r="1"/><circle cx="16" cy="10" r="1"/></svg></button>
+              </div>
+              <div class="empty-state" id="empty-state">
+                <div class="empty-illustration"><div class="empty-circle"></div><div class="empty-doc"><span></span><i></i><i></i><i></i><b>✦</b></div><div class="empty-check">↗</div></div>
+                <h3>Your insights will appear here</h3><p>Add your essay and select <strong>Evaluate essay</strong> to see your score breakdown and personalized feedback.</p>
+                <div class="empty-points"><span><i>✓</i>Clear score breakdown</span><span><i>✓</i>Actionable writing tips</span></div>
+              </div>
+              <div class="result-content hidden" id="result-content">
+                <div class="score-overview">
+                  <div class="score-ring" id="score-ring"><div class="score-ring-inner"><strong id="score-value">—</strong><span>out of 6</span></div></div>
+                  <div class="score-caption"><span class="score-pill" id="score-label">Developing</span><h3 id="score-title">A good foundation</h3><p id="score-summary">Your essay has a clear starting point.</p></div>
+                </div>
+                <div class="score-divider"></div>
+                <div class="section-title-row"><h3>Skill breakdown</h3><button class="rubric-link" id="rubric-inline-link" type="button">View rubric &amp; color key <span>↗</span></button></div>
+                <div class="skill-list" id="skill-list" aria-label="Essay skill scores"></div>
+                <p class="skill-scale-note">Each colored line shows the estimated level for that skill on a 0–6 scale.</p>
+                <div class="feedback-box"><div class="feedback-title"><span class="feedback-spark">✦</span><h3>One thing to try next</h3></div><p id="feedback-tip"></p></div>
+                <div class="result-actions"><button type="button" class="secondary-button" id="copy-feedback"><svg viewBox="0 0 20 20"><rect x="7" y="7" width="9" height="10" rx="1.5"/><path d="M13 7V4.5A1.5 1.5 0 0 0 11.5 3h-7A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13H7"/></svg>Copy feedback</button><button type="button" class="secondary-button" id="new-evaluation"><svg viewBox="0 0 20 20"><path d="M10 3v14M3 10h14"/></svg>New evaluation</button></div>
+                <p class="demo-disclaimer"><span>ⓘ</span> Demonstration estimate based on writing signals. It is not a validated or official grade.</p>
+              </div>
+            </section>
+          </div>
+
+          <section class="bottom-strip" id="about">
+            <div class="bottom-copy"><span class="bottom-kicker">A helpful second perspective</span><h2>Better writing starts with<br /><span>knowing what to work on.</span></h2><p>EssayLens looks at structure, clarity, development, and mechanics to turn a draft into a useful next step.</p><button class="learn-link" id="learn-more" type="button">Explore how it works <span>↗</span></button></div>
+            <div class="process-steps"><div class="process-step"><span class="step-number">01</span><div class="step-icon step-purple"><svg viewBox="0 0 24 24"><path d="M5 4.5h14v15H5zM8 8h8M8 12h8M8 16h4"/></svg></div><h3>Read the draft</h3><p>We look at the whole essay, not just the word count.</p></div><div class="step-connector"></div><div class="process-step"><span class="step-number">02</span><div class="step-icon step-yellow"><svg viewBox="0 0 24 24"><path d="m4 17 4-4 4 2 7-8"/><path d="M14 7h5v5M4 20h16"/></svg></div><h3>Check key skills</h3><p>See a simple breakdown across core writing areas.</p></div><div class="step-connector"></div><div class="process-step"><span class="step-number">03</span><div class="step-icon step-green"><svg viewBox="0 0 24 24"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg></div><h3>Find your next step</h3><p>Take one practical idea into your next revision.</p></div></div>
+          </section>
+          <section class="roadmap-row" id="project-roadmap" aria-label="Automated essay scoring project roadmap">
+            <div class="roadmap-intro"><span>THE PROJECT ROADMAP</span><h2>Built to grow with the science.</h2></div>
+            <div class="roadmap-item"><span class="roadmap-number">01</span><div><strong>Preprocess</strong><small>Clean · tokenize · segment</small></div></div>
+            <div class="roadmap-item"><span class="roadmap-number">02</span><div><strong>Extract signals</strong><small>Language · structure · meaning</small></div></div>
+            <div class="roadmap-item"><span class="roadmap-number">03</span><div><strong>Compare models</strong><small>QWK · MAE · correlation</small></div></div>
+            <div class="roadmap-item roadmap-next"><span class="roadmap-number">↗</span><div><strong>Ready for transformers</strong><small>Extend with BERT and beyond</small></div></div>
+          </section>
+          <footer class="page-footer"><span>EssayLens <span class="footer-dot">·</span> Built for learning, one draft at a time.</span><div><a href="#about" id="footer-about">About</a><a href="#rubric" id="footer-rubric">Scoring rubric</a><span>© 2026 EssayLens</span></div></footer>
+        </div>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <div class="modal-backdrop hidden" id="workspace-modal" role="dialog" aria-modal="true" aria-labelledby="workspace-modal-title"><div class="info-modal workspace-modal"><button class="modal-close" id="workspace-modal-close" type="button" aria-label="Close">×</button><span class="modal-mark">✳</span><h2 id="workspace-modal-title">Workspace</h2><p id="workspace-modal-description"></p><div id="workspace-modal-body"></div></div></div>
+    <div class="modal-backdrop hidden" id="info-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title"><div class="info-modal"><button class="modal-close" id="modal-close" type="button" aria-label="Close">×</button><span class="modal-mark">✳</span><h2 id="modal-title">How EssayLens works</h2><p>This project interface demonstrates an automated essay scoring workflow. A production system can preprocess an essay, extract linguistic, structural, and semantic signals, and pass them to a trained scoring model.</p><div class="modal-list"><div><b>01</b><span><strong>Prepare the text</strong><small>Normalize text and identify words, sentences, and paragraphs.</small></span></div><div><b>02</b><span><strong>Analyze writing</strong><small>Measure organization, language variety, clarity, mechanics, and meaning.</small></span></div><div><b>03</b><span><strong>Train and compare</strong><small>Compare classical models and transformer approaches using QWK, MAE, and correlation.</small></span></div><div><b>04</b><span><strong>Predict and explain</strong><small>Return a consistent score with learning-focused feedback for revision.</small></span></div></div><p class="modal-note">Scores shown here are illustrative demo estimates. They are not produced by a trained or validated model. The interface is designed to connect to a validated model, including BERT-based scoring.</p><button class="evaluate-button modal-action" id="modal-done" type="button"><span>Got it</span><svg viewBox="0 0 20 20"><path d="M4 10h12M11 5l5 5-5 5"/></svg></button></div></div>
+    <script src="app.js"></script>
+  </body>
+</html>
